@@ -1,9 +1,9 @@
-name: contacts
-description: A Flutter plugin to retrieve and manage contacts on Android and iOS devices.
-version: 0.0.9
-author: Clovis Nicolas <clovisnicolas0@gmail.com>
-homepage: https://github.com/clovisnicolas/flutter_contacts
-maintainer: Clovis Nicolas (@clovisnicolas)
+name: ngobrel_contacts
+description: A Flutter plugin to retrieve and manage contacts on Android and iOS devices based on contacts_service by Clovis Nicolas
+version: 0.0.1
+author: Ngobrel <chat@ngobrel.rocks>
+homepage: https://github.com/ngobrel/ngobrel-contacts
+maintainer: Ngobrel
 
 environment:
   sdk: ">=2.0.0-dev.58.0.flutter-f981f09760 <3.0.0"

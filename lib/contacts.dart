@@ -14,8 +14,8 @@ class Contacts {
     return contacts.map((m) => Contact.fromMap(m));
   }
 
-  static Future<Iterable<Contact>> getContactsByPhoneNumber(String query) async {
-    Iterable contacts = await _channel.invokeMethod('getContactsByPhoneNumber', query);
+  static Future<Iterable<Contact>> getContactsByPhoneNumber({ String query, String countryPrefix}) async {
+    Iterable contacts = await _channel.invokeMethod('getContactsByPhoneNumber', [query, countryPrefix]);
     return contacts.map((m) => Contact.fromMap(m));
   }
 

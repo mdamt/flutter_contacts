@@ -1,4 +1,4 @@
-name: contacts_service_example
+name: ngobrel_contacts_example
 description: Demonstrates how to use the contacts_service plugin.
 
 dependencies:
@@ -13,7 +13,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  contacts:
+  ngobrel_contacts:
     path: ../
 
 # For information on the generic Dart part of this file, see the

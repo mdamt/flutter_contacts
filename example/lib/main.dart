@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:contacts/contacts.dart';
+import 'package:ngobrel_contacts/contacts.dart';
 
 void main() => runApp(ContactsExampleApp());
 
@@ -27,7 +27,7 @@ class _ContactListPageState extends State<ContactListPage> {
   }
 
   refreshContacts() async {
-    var contacts = await Contacts.getContactsByPhoneNumber("123");
+    var contacts = await Contacts.getContactsByPhoneNumber(query: "+62123", countryPrefix: "+62");
     setState(() {
       _contacts = contacts;
     });
