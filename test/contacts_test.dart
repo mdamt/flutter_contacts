@@ -1,10 +1,10 @@
-import 'package:contacts_service/contacts_service.dart';
+import 'package:contacts/contacts.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   const MethodChannel channel =
-      MethodChannel('github.com/clovisnicolas/flutter_contacts');
+      MethodChannel('github.com/ngobrel/contacts');
   final List<MethodCall> log = <MethodCall>[];
   channel.setMockMethodCallHandler((MethodCall methodCall) async {
     log.add(methodCall);
@@ -30,7 +30,7 @@ void main() {
   });
 
   test('should get contacts', () async {
-    final Iterable contacts = await ContactsService.getContacts();
+    final Iterable contacts = await Contacts.getContacts();
     expect(contacts.length, 2);
     expect(contacts, everyElement(isInstanceOf<Contact>()));
     expect(contacts.toList()[0].givenName, 'givenName1');
@@ -39,7 +39,7 @@ void main() {
   });
 
   test('should add contact', () async {
-    await ContactsService.addContact(Contact(
+    await Contacts.addContact(Contact(
       givenName: 'givenName',
       emails: [Item(label: 'label')],
       phones: [Item(label: 'label')],
@@ -49,7 +49,7 @@ void main() {
   });
 
   test('should delete contact', () async {
-    await ContactsService.deleteContact(Contact(
+    await Contacts.deleteContact(Contact(
       givenName: 'givenName',
       emails: [Item(label: 'label')],
       phones: [Item(label: 'label')],

@@ -3,14 +3,19 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 
-class ContactsService {
+class Contacts {
   static const MethodChannel _channel =
-      MethodChannel('github.com/clovisnicolas/flutter_contacts');
+      MethodChannel('github.com/ngobrel/contacts');
 
   /// Fetches all contacts, or when specified, the contacts with a name
   /// matching [query]
   static Future<Iterable<Contact>> getContacts({String query}) async {
     Iterable contacts = await _channel.invokeMethod('getContacts', query);
+    return contacts.map((m) => Contact.fromMap(m));
+  }
+
+  static Future<Iterable<Contact>> getContactsByPhoneNumber(String query) async {
+    Iterable contacts = await _channel.invokeMethod('getContactsByPhoneNumber', query);
     return contacts.map((m) => Contact.fromMap(m));
   }
 

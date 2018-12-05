@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:contacts_service/contacts_service.dart';
+import 'package:contacts/contacts.dart';
 
 void main() => runApp(ContactsExampleApp());
 
@@ -27,7 +27,7 @@ class _ContactListPageState extends State<ContactListPage> {
   }
 
   refreshContacts() async {
-    var contacts = await ContactsService.getContacts();
+    var contacts = await Contacts.getContactsByPhoneNumber("123");
     setState(() {
       _contacts = contacts;
     });
@@ -84,7 +84,7 @@ class ContactDetailsPage extends StatelessWidget {
           FlatButton(
               child: Icon(Icons.delete),
               onPressed: () {
-                ContactsService.deleteContact(_contact);
+                Contacts.deleteContact(_contact);
               })
         ]),
         body: SafeArea(
@@ -197,7 +197,7 @@ class _AddContactPageState extends State<AddContactPage> {
               onPressed: () {
                 _formKey.currentState.save();
                 contact.postalAddresses = [address];
-                ContactsService.addContact(contact);
+                Contacts.addContact(contact);
                 Navigator.of(context).pop();
               },
               child: Icon(Icons.save, color: Colors.white))
