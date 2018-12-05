@@ -1,4 +1,4 @@
-group 'flutter.plugins.contactsservice.contactsservice'
+group 'flutter.plugins.ngobrel.contacts'
 version '1.0-SNAPSHOT'
 
 buildscript {
